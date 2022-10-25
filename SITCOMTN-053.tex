@@ -3,6 +3,15 @@
 
 % Package imports go here.
 \usepackage{xcolor}
+\usepackage{graphicx} % Formats for images
+\usepackage{booktabs} % For \toprule, \midrule and \bottomrule
+\usepackage{multirow} % Required for multirows
+\usepackage{pdflscape}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{booktabs}
+\usepackage{caption}
 % Local commands go here.
 
 %If you want glossaries
@@ -82,7 +91,7 @@ to a complete stop after activating the limit switches.
 The following are the relevant requirements for the synchronous motion
 between the CCW and the Camera Rotator.
 
-\underline{\citeds{LTS-103}}
+\underline{LTS-103}
 
 \begin{itemize}
 \item
@@ -95,7 +104,7 @@ between the CCW and the Camera Rotator.
   \end{itemize}
 \end{itemize}
 
-\underline{\citeds{LTS-218}}
+\underline{LTS-218}
 
 \begin{itemize}
 \item
@@ -144,7 +153,7 @@ between the CCW and the Camera Rotator.
   \end{itemize}
 \end{itemize}
 
-\underline{\citeds{LTS-156}}
+\underline{LTS-156}
 
 \begin{itemize}
 \item
@@ -165,7 +174,7 @@ between the CCW and the Camera Rotator.
   \end{itemize}
 \end{itemize}
 
-\underline{\citeds{LTS-206}}
+\underline{LTS-206}
 
 \begin{itemize}
 \item
@@ -191,7 +200,7 @@ between the CCW and the Camera Rotator.
   \end{itemize}
 \end{itemize}
 
-\underline{\citeds{LSE-80}}
+\underline{LSE-80}
 
 \begin{itemize}
 \item
@@ -414,7 +423,7 @@ data captured to determine the result of the tasks define in Section \ref{sec:Ch
 
 \subsection{Limit Switch Activation Location Recommendation}
 
-During the execution of this characterization it came to our attention that when the 2.2 deg following error software limit between the CCW and Rotator was reached the limit switches were still being activated. This is the result of the Rotator’s “ControlledStopping” state uses the max velocity, acceleration, and jerk requirements to perform the controlled stop. This means that when the Rotator receives the stop command after the following error is reached it takes around 6 deg to come to a complete stop. This does not follow the methodology that we have employed in Rubin Observatory where a software limit is activated and the system comes to a complete stop prior to activating the hardware limit switches. At the same time we do not want to have too high of a deceleration and jerk transferred to the Camera instrument when the following error is reached. The deceleration and jerk when the limit switch is activated is uncontrolled and quite high. This has led us to create a change request  (LCR-3074) for the Rotator to have a more aggressive and adjustable stopping distance when the following error is reached than the current controlled stop. This will allow Rubin Observatory to optimize the location of the limit switch activation based on deceleration and jerk values vs stopping distance after a following error of 2.2 deg vs the stopping distance after activating the limit switches. The \citeds{LSE-80} requirement for the angular rotation between the bulkhead plate and the wobble plate is 5 degrees so that should be the minimum slack in the utility lines and the maximum angular rotation between the CCW and the Rotator after activating the limit switch and coming to a complete stop.
+During the execution of this characterization it came to our attention that when the 2.2 deg following error software limit between the CCW and Rotator was reached the limit switches were still being activated. This is the result of the Rotator’s “ControlledStopping” state uses the max velocity, acceleration, and jerk requirements to perform the controlled stop. This means that when the Rotator receives the stop command after the following error is reached it takes around 6 deg to come to a complete stop. This does not follow the methodology that we have employed in Rubin Observatory where a software limit is activated and the system comes to a complete stop prior to activating the hardware limit switches. At the same time we do not want to have too high of a deceleration and jerk transferred to the Camera instrument when the following error is reached. The deceleration and jerk when the limit switch is activated is uncontrolled and quite high. This has led us to create a change request  (LCR-3074) for the Rotator to have a more aggressive and adjustable stopping distance when the following error is reached than the current controlled stop. This will allow Rubin Observatory to optimize the location of the limit switch activation based on deceleration and jerk values vs stopping distance after a following error of 2.2 deg vs the stopping distance after activating the limit switches. The LSE-80 requirement for the angular rotation between the bulkhead plate and the wobble plate is 5 degrees so that should be the minimum slack in the utility lines and the maximum angular rotation between the CCW and the Rotator after activating the limit switch and coming to a complete stop.
 Based on the requirements and characterization of the limit switches we recommend that the limit switch activation location should be {\color{red} \textbf{+/- XX deg}}.
 \newpage
 
@@ -423,7 +432,7 @@ Based on the requirements and characterization of the limit switches we recommen
 % https://lsst-texmf.lsst.io/lsstdoc.html#bibliographies
 \section{References} \label{sec:bib}
 \renewcommand{\refname}{} % Suppress default Bibliography section
-\bibliography{local,lsst,lsst-dm,refs_ads,refs,books}
+\bibliography{local,lsst,refs_ads,refs,books}
 
 % Make sure lsst-texmf/bin/generateAcronyms.py is in your path
 \section{Acronyms} \label{sec:acronyms}
